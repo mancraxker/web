@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión - PCR</title>
+    
+    <style>
+        /* Estilos generales del cuerpo */
+        body {
+            font-family: Arial, sans-serif; /* Establecemos una fuente limpia y legible */
+            background-color: white; /* Color de fondo más neutral y profesional */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh; /* Ocupa toda la altura de la ventana */
+            margin: 0;
+        }
+
+       /* Logo fuera del contenedor */
+        .logo {
+    position: absolute;  /* Coloca el logo de forma libre */
+    top: 144px;           /* Distancia desde la parte superior */
+    left: 450px;          /* Distancia desde la izquierda */
+    width: 129px;        /* Ancho del logo */
+    height: 138px;        /* Mantiene la proporción */
+    z-index: 10;         /* Asegura que el logo esté por encima del contenedor */
+        }
+
+        /* Estilo del contenedor del formulario */
+        .login-container {
+            background-color: white; /* Fondo blanco para el formulario */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  Sombra suave para resaltar el formulario */
+            width: 100%;
+            max-width: 400px; /* Limita el ancho máximo */
+			
+        }
+
+        /* Título */
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+       /* Estilo de las etiquetas y los campos de entrada */
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #344;
+            width: 40%; /* Ajusta el ancho del label */
+        }
+
+        .form-group input {
+            width: 55%; /* Ajusta el ancho del input */
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+			border: 1px solid gray; /* color para los Bordes   */
+            font-size: 14px;
+            background-color: whitesmoke; /* Color de fondo para los campos */
+            color: black; /* Color del texto */
+        }
+
+        /* Estilo del botón de envío */
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #002416; /* Color de fondo verde */
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 9px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Efecto de transición para el hover */
+        }
+
+	     	/* Estilo de los botones de reset (Cancelar) */
+          input[type="reset"] {
+           width: auto; /* Asegura que el botón se ajuste al contenido */
+           padding: 6px 10px; /* Tamaño reducido para un botón más pequeño */
+          font-size: 12px; /* Tamaño de la fuente reducido */
+        border-radius: 9px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor cuando pasa sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+    display: block; /* Hace que el enlace ocupe toda la línea */
+    text-align: center; /* Centra el texto dentro del enlace */
+    width: 50%; /* Hace que el botón ocupe todo el ancho */
+    border: none; /* Elimina el borde predeterminado */
+    background-color: #002416; /* Color de fondo  */
+    color: white; /* Color del texto blanco */
+}
+
+input[type="reset"]:focus {
+    outline: none; /* Elimina el contorno cuando el botón está enfocado */
+}
+
+		
+        /* Efecto hover en el botón de envío */
+        input[type="submit"]:hover {
+            background-color: #007690; /* Color ligeramente más oscuro */
+        }
+
+        /* Estilo de los enlaces (botones pequeños) */
+        .cuenta {
+            display: inline-block;
+            background-color: #002416; /* Color de fondo verde */
+            color: white;
+            padding: 12px 29px;
+            text-align: center;
+            text-decoration: none; /* Elimina subrayado */
+            font-size: 12px;
+            border-radius: 9px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Efecto hover en los enlaces */
+        .cuenta:hover {
+            background-color: #007690;
+        }
+
+        /* Estilo de los botones (alineación y espaciado) */
+        .form-buttons {
+            display: flex;
+            justify-content: space-between; /* Alinea los botones a los extremos */
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        /* Estilo para los mensajes de error */
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Contenedor principal del formulario -->
+    <div class="login-container">
+        <h2>Iniciar sesión</h2>
+		
+      <!-- Formulario de inicio de sesión -->
+        <form action="login.php" method="POST">
+				<!-- Logo -->
+    <img src="img/logosinfondo.png" alt="Logo de la empresa" class="logo">
+			
+            <div class="form-group">
+              <label for="username">Nombre de usuario:</label>
+                <input type="text" id="username" name="username" required placeholder="Ingrese su nombre de usuario">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required placeholder="Ingrese su contraseña">
+            </div>
+            <br>
+            <!-- Botón de envío -->
+            <input type="submit" value="Iniciar sesión">
+            
+            <!-- Contenedor de los botones de acción -->
+            <div class="form-buttons">
+                <!-- Enlace para crear cuenta -->
+                <a href="registro.php" class="cuenta">Crear Cuenta</a>
+                <!-- Botón para reiniciar los campos -->
+                <input type="reset" class="cuenta" value="Cancelar">
+                <!-- Enlace para recuperar la contraseña -->
+                <a href="recuperar_contrasena.php" class="cuenta">¿Olvidaste la contraseña?</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
